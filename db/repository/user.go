@@ -1,7 +1,6 @@
 package repository
 
 import (
-	"fmt"
 	"gorm.io/gorm"
 	"my_gorm/entity"
 )
@@ -22,4 +21,9 @@ func GetUserById(tx *gorm.DB , id string)(*entity.User , error) {
 	var user entity.User;
 	result := tx.Find(&user , "id = ?" , id )
 	return &user,result.Error
+}
+
+func CreateUser(tx *gorm.DB, user *entity.User)(error){
+	result := tx.Create(user)
+	return result.Error
 }

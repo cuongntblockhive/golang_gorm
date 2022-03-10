@@ -2,7 +2,6 @@ package main
 
 import (
 	"my_gorm/db"
-	// "my_gorm/entity"
 	dbRepo "my_gorm/db/repository"
 	"my_gorm/api/router"
 )
