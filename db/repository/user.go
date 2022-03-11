@@ -27,3 +27,8 @@ func CreateUser(tx *gorm.DB, user *entity.User)(error){
 	result := tx.Create(user)
 	return result.Error
 }
+
+func SelectAuthUser(tx *gorm.DB, authData *entity.User) error {
+	result := tx.Where("email = ? AND password = ?", authData.Email, authData.Password).First(&authData)
+	return result.Error
+}
